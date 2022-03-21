@@ -26,7 +26,7 @@ try:
     bots = botlist.split()
     session_name = str(session)
     user_bot = TelegramClient(StringSession(session_name), appid, apihash)
-    logging.info("\n\nStarted.\nVisit @BotzHuB!")
+    logging.info("\n\nStarted.\nVisit @Raze_Network!")
 except Exception as e:
     logging.info(f'ERROR\n{e}')
 
@@ -39,12 +39,12 @@ async def BotzHub():
                 await user_bot.edit_message(
                     int(chnl_id),
                     msg_id,
-                    "**@BotzHub Bots Stats.**\n\n`Performing a periodic check...`",
+                    "**Raze Network Bots Status.**\n\n`Performing a periodic check...`",
                 )
             except MessageNotModifiedError:
                 pass
             c = 0
-            edit_text = "**@BotzHub Bots Stats.**\n\n"
+            edit_text = "**━━━━━ [Bᴏᴛ Sᴛᴀᴛs](t.me/Raze_Network) ━━━━━.**\n\n"
             for bot in bots:
                 try:
                     logging.info(f"[INFO] checking @{bot}")
@@ -66,10 +66,10 @@ async def BotzHub():
 
                     msg = history.messages[0].id
                     if snt.id == msg:
-                        logging.info(f"@{bot} is down.")
-                        edit_text += f"@{bot} - ❌\n"
+                        logging.info(f"✗ @{bot} is down.")
+                        edit_text += f"✗ @{bot} - ❌\n"
                     elif snt.id + 1 == msg:
-                        edit_text += f"@{bot} - ✅\n"
+                        edit_text += f"✗ @{bot} - ✅\n"
                     await user_bot.send_read_acknowledge(bot)
                     c += 1
                 except FloodWaitError as f:
