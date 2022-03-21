@@ -66,7 +66,7 @@ async def BotzHub():
 
                     msg = history.messages[0].id
                     if snt.id == msg:
-                        logging.info(f"✗ @{bot} is down.")
+                        logging.info(f"@{bot} is down.")
                         edit_text += f"✗ @{bot} - ❌\n"
                     elif snt.id + 1 == msg:
                         edit_text += f"✗ @{bot} - ✅\n"
